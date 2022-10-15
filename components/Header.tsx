@@ -44,14 +44,6 @@ const CustomHeader = () => {
 	return (
 		<div className={styles.custom__header__wrapper}>
 			<div className={styles.custom__part__2}>
-				<div>
-					<BellOutlined className={styles.header__icon__style} />
-				</div>
-				<div>
-					{/* #B2B2B2 */}
-					<MessageOutlined className={styles.header__icon__style} />
-				</div>
-
 				<div className={styles.admin__dropdown}>
 					<div className={styles.admin__photo}>
 						<UserOutlined className={styles.header__icon__style} />
