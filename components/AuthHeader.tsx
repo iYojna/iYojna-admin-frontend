@@ -1,3 +1,4 @@
+import React from 'react'
 import { Typography, Layout } from 'antd'
 
 const { Title, Text } = Typography
@@ -24,7 +25,7 @@ const AuthHeader = () => {
 					color: '#000000D9',
 				}}
 			>
-				SHISHYA
+				IYojna
 			</Title>
 			<Text
 				style={{
@@ -35,9 +36,11 @@ const AuthHeader = () => {
 					letterSpacing: '0em',
 					color: '#00000073',
 					width: '30vw',
+					textAlign: 'center',
 				}}
 			>
-				One stop destination for students to track all their documents.
+				One stop destination for citizens to find and understand all the
+				government schemes applicable to them.
 			</Text>
 		</Header>
 	)

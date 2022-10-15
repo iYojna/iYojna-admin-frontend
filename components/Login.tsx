@@ -59,14 +59,19 @@ const Login = () => {
 				<Button
 					type="primary"
 					htmlType="submit"
-					style={{ width: '6vw', marginRight: '3%', marginTop: '0.8rem' }}
+					style={{
+						width: '6vw',
+						marginRight: '3%',
+						marginTop: '0.8rem',
+						borderRadius: '5px',
+					}}
 				>
 					Login
 				</Button>
 				<Button
 					htmlType="button"
 					onClick={onReset}
-					style={{ width: '6vw', marginTop: '0.8rem' }}
+					style={{ width: '6vw', marginTop: '0.8rem', borderRadius: '5px' }}
 				>
 					Reset
 				</Button>
