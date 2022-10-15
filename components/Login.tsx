@@ -4,7 +4,8 @@ import React from 'react'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
 
 const { Option } = Select
-
+import useLangStore from '../utils/store'
+import langSt from "../utils/uiText.json";
 // const layout = {
 // 	labelCol: { span: 8 },
 // 	wrapperCol: { span: 16 },
@@ -15,7 +16,8 @@ const { Option } = Select
 
 const Login = () => {
 	const [form] = Form.useForm()
-
+	const language = useLangStore((state) => state.language)
+	// console.log("LANG: ", language);
 	const onFinish = (values: any) => {
 		console.log(values)
 	}
@@ -26,10 +28,10 @@ const Login = () => {
 
 	return (
 		<Form form={form} name="control-hooks" onFinish={onFinish}>
-			<Form.Item name="email" rules={[{ required: true }]}>
+			<Form.Item name={language === "gj" ? langSt.gj.email : langSt.en.email} rules={[{ required: true }]}>
 				<Input
 					size="large"
-					placeholder="Email"
+					placeholder={language === "gj" ? langSt.gj.email : langSt.en.email}
 					style={{ marginTop: '4%' }}
 					prefix={
 						<UserOutlined
@@ -41,10 +43,10 @@ const Login = () => {
 					}
 				/>
 			</Form.Item>
-			<Form.Item name="password" rules={[{ required: true }]}>
+			<Form.Item name={language === "gj" ? langSt.gj.password : langSt.en.password} rules={[{ required: true }]}>
 				<Input.Password
 					size="large"
-					placeholder="Password"
+					placeholder={language === "gj" ? langSt.gj.password : langSt.en.password}
 					prefix={
 						<LockOutlined
 							style={{
@@ -66,14 +68,14 @@ const Login = () => {
 						borderRadius: '5px',
 					}}
 				>
-					Login
+					{language === "gj" ? langSt.gj.login : langSt.en.login}
 				</Button>
 				<Button
 					htmlType="button"
 					onClick={onReset}
 					style={{ width: '6vw', marginTop: '0.8rem', borderRadius: '5px' }}
 				>
-					Reset
+					{language === "gj" ? langSt.gj.reset : langSt.en.reset}
 				</Button>
 			</Form.Item>
 		</Form>

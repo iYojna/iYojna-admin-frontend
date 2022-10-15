@@ -11,27 +11,18 @@ import { Layout, Menu } from 'antd'
 const { Content, Sider } = Layout
 import styles from '../styles/Components/Layout.module.css'
 import CustomHeader from '../components/Header'
+import langSt from "../utils/uiText.json";
+import useLangStore from '../utils/store'
 
 interface IProps {
 	children: React.ReactNode
 }
 
-const items1 = ['1', '2', '3'].map((key) => ({
-	key,
-	label: `nav ${key}`,
-}))
-
-const items2 = [
-	UserOutlined,
-	LaptopOutlined,
-	NotificationOutlined,
-	LaptopOutlined,
-	NotificationOutlined,
-]
-
 const CustomLayout = ({ children }: IProps) => {
 	const router = useRouter()
 	const [collapsed, setCollapsed] = useState(false)
+	
+	const language = useLangStore((state) => state.language);
 
 	const navItems = React.useMemo(
 		() => [
@@ -87,7 +78,7 @@ const CustomLayout = ({ children }: IProps) => {
 						}}
 					>
 						<p className={styles.side__panel__title}>
-							{collapsed ? 'iY' : 'iYojna'}
+							{collapsed ? 'iY' : language === "gj" ? langSt.gj.iYojna : langSt.en.iYojna}
 						</p>
 					</div>
 

@@ -3,8 +3,12 @@ import { Typography, Layout } from 'antd'
 
 const { Title, Text } = Typography
 const { Header } = Layout
+import useLangStore from '../utils/store'
+import langSt from "../utils/uiText.json";
 
 const AuthHeader = () => {
+
+	const language = useLangStore((state) => state.language)
 	return (
 		<Header
 			style={{
@@ -25,8 +29,8 @@ const AuthHeader = () => {
 					color: '#000000D9',
 				}}
 			>
-				iYojna
-			</Title>
+				{language === "gj" ? langSt.gj.iYojna : langSt.en.iYojna}
+			</Title>	
 			<Text
 				style={{
 					fontFamily: 'Roboto',
@@ -39,8 +43,7 @@ const AuthHeader = () => {
 					textAlign: 'center',
 				}}
 			>
-				One stop destination for citizens to find and understand all the
-				government schemes applicable to them.
+				{language === "gj" ? langSt.gj.introText : langSt.en.introText}
 			</Text>
 		</Header>
 	)

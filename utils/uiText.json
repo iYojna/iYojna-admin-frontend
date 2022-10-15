@@ -1,8 +1,32 @@
 {
     "en":{
-        "splashHeading": "Shishya Admin Page"
+        "splashHeading": "Shishya Admin Page",
+        "email": "Email",
+        "password": "Password",
+        "login": "Login",
+        "reset": "Reset",
+        "introText": "One stop destination for citizens to find and understand all the government schemes applicable to them.",
+        "iYojna": "iYojna",
+        "name": "Dhruv Dave",
+        "language": "Language",
+        "iY": "iY",
+        "passPlaceholder": "Password (6 characters atleast, case sensitive)",
+        "confirmPassword": "Confirm Password",
+        "signUp": "Sign Up"
     },
     "gj":{
-
+        "splashHeading": "શિષ્ય એડમિન પેજ",
+        "email": "ઇમેઇલ",
+        "password": "પાસવર્ડ",
+        "login": "પ્રવેશ કરો",
+        "reset": "રીસેટ",
+        "introText": "નાગરિકો માટે તમામ શોધવા અને સમજવા માટે વન સ્ટોપ ડેસ્ટિનેશન તેમને લાગુ પડતી સરકારી યોજનાઓ.",
+        "iYojna": "ઈ-યોજના",
+        "name": "ધ્રુવ દવે",
+        "language": "ભાષા",
+        "iY": "ઈ-યો",
+        "passPlaceholder": "પાસવર્ડ (ઓછામાં ઓછા 6 અક્ષરો, કેસ સંવેદનશીલ)",
+        "confirmPassword": "પાસવર્ડની પુષ્ટિ કરો",
+        "signUp": "સાઇન અપ"
     }
 }

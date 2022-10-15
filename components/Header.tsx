@@ -8,10 +8,17 @@ import {
 } from '@ant-design/icons'
 import { Dropdown, Menu as AntDMenu, Space } from 'antd'
 import { useRouter } from 'next/router'
+import useLangStore from '../utils/store'
+import langSt from '../utils/uiText.json'
 
 const LanguageMenu = () => {
+	const setLanguage = useLangStore((state) => state.setLanguage);
+	
+
 	return (
-		<AntDMenu>
+		<AntDMenu onClick={(val) => {
+			val.key === "tmp_key-0" ? setLanguage("en") : setLanguage("gj");
+		}}>
 			<AntDMenu.Item>English</AntDMenu.Item>
 			<AntDMenu.Item>ગુજરાતી</AntDMenu.Item>
 		</AntDMenu>
@@ -19,7 +26,9 @@ const LanguageMenu = () => {
 }
 
 const Menu = () => {
-	const router = useRouter()
+	const router = useRouter();
+	
+
 	return (
 		<AntDMenu
 			items={[
@@ -41,6 +50,7 @@ const Menu = () => {
 }
 
 const CustomHeader = () => {
+	const language = useLangStore((state) => state.language);
 	return (
 		<div className={styles.custom__header__wrapper}>
 			<div className={styles.custom__part__2}>
@@ -55,7 +65,7 @@ const CustomHeader = () => {
 					>
 						<a onClick={(e) => e.preventDefault()}>
 							<Space>
-								Dhruv Dave
+								{language === "gj" ? langSt.gj.name : langSt.en.name}
 								<DownOutlined />
 							</Space>
 						</a>
@@ -67,7 +77,7 @@ const CustomHeader = () => {
 					>
 						<a onClick={(e) => e.preventDefault()}>
 							<Space>
-								Language
+								{language !== "gj" ? langSt.gj.language : langSt.en.language}
 								<DownOutlined />
 							</Space>
 						</a>
