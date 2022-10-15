@@ -2,7 +2,8 @@
     width: 100%;
     display: flex;
     padding: 20px 0;
-    justify-content: space-between;
+    justify-content: flex-end;
+    /* justify-content: space-between; */
     align-items: center;
     border-bottom: 1px solid #e7e4e4;
     /* border: 1px solid black; */
@@ -42,6 +43,7 @@
 }
 .custom__dropdown{
     font-size: 18px;
+    padding: 0px 10px;
 }
 .admin__photo{
     margin-right: 10px;

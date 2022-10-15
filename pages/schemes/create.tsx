@@ -1,14 +1,14 @@
 import React from 'react'
-import styles from '../styles/Pages/create-form.module.css'
-import CreateFormStatus from '../components/CreateFormStatus'
-import CustomButton from '../components/CustomButton'
+import styles from '../../styles/Pages/create-form.module.css'
+import CreateFormStatus from '../../components/CreateFormStatus'
+import CustomButton from '../../components/CustomButton'
 
-import useFormStore from '../components/create-form/formStore'
+import useFormStore from '../../components/create-form/formStore'
 
-import CreateFormStep1 from '../components/create-form/create-form-step-1'
-import CreateFormStep2 from '../components/create-form/createFormStep2'
+import CreateFormStep1 from '../../components/create-form/create-form-step-1'
+import CreateFormStep2 from '../../components/create-form/create-form-step-2'
 
-import AxiosInstance from '../services/AxiosInstance'
+import AxiosInstance from '../../services/AxiosInstance'
 
 const CreateForm = () => {
 	const [step, setStep] = React.useState(1)
@@ -116,7 +116,7 @@ const CreateForm = () => {
 				overflowY: 'scroll',
 			}}
 		>
-			<p className={styles.create__form__title}>Create New Form</p>
+			<p className={styles.create__form__title}>Create New Scheme</p>
 			<div className={styles.create__form__status__wrap}>
 				<CreateFormStatus currentStep={step} />
 			</div>

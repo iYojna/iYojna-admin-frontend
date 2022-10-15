@@ -6,40 +6,43 @@ import {
 	DownOutlined,
 	UserOutlined,
 } from '@ant-design/icons'
-import { Dropdown, Menu, Space } from 'antd'
+import { Dropdown, Menu as AntDMenu, Space } from 'antd'
+import { useRouter } from 'next/router'
 
-const menu = (
-	<Menu
-		items={[
-			{
-				label: <a href="https://www.antgroup.com">1st menu item</a>,
-				key: '0',
-			},
-			{
-				label: <a href="https://www.aliyun.com">2nd menu item</a>,
-				key: '1',
-			},
-			{
-				type: 'divider',
-			},
-			{
-				label: '3rd menu item',
-				key: '3',
-			},
-		]}
-	/>
-)
+const LanguageMenu = () => {
+	return (
+		<AntDMenu>
+			<AntDMenu.Item>English</AntDMenu.Item>
+			<AntDMenu.Item>ગુજરાતી</AntDMenu.Item>
+		</AntDMenu>
+	)
+}
+
+const Menu = () => {
+	const router = useRouter()
+	return (
+		<AntDMenu
+			items={[
+				{
+					label: 'Schemes',
+					key: 0,
+					onClick: () => router.push('/schemes'),
+				},
+				{
+					type: 'divider',
+				},
+				{
+					label: 'Logout',
+					key: 3,
+				},
+			]}
+		/>
+	)
+}
 
 const CustomHeader = () => {
 	return (
 		<div className={styles.custom__header__wrapper}>
-			<div className={styles.custom__part__1}>
-				<div className={styles.custom__institute__name}>
-					<div className={styles.insitute__title}>
-						Indian Institute of Information Technology, Vadodara
-					</div>
-				</div>
-			</div>
 			<div className={styles.custom__part__2}>
 				<div>
 					<BellOutlined className={styles.header__icon__style} />
@@ -53,20 +56,30 @@ const CustomHeader = () => {
 					<div className={styles.admin__photo}>
 						<UserOutlined className={styles.header__icon__style} />
 					</div>
-					<div>
-						<Dropdown
-							overlay={menu}
-							trigger={['click']}
-							className={styles.custom__dropdown}
-						>
-							<a onClick={(e) => e.preventDefault()}>
-								<Space>
-									Dhruv Dave
-									<DownOutlined />
-								</Space>
-							</a>
-						</Dropdown>
-					</div>
+					<Dropdown
+						overlay={<Menu />}
+						trigger={['click']}
+						className={styles.custom__dropdown}
+					>
+						<a onClick={(e) => e.preventDefault()}>
+							<Space>
+								Dhruv Dave
+								<DownOutlined />
+							</Space>
+						</a>
+					</Dropdown>
+					<Dropdown
+						overlay={<LanguageMenu />}
+						trigger={['click']}
+						className={styles.custom__dropdown}
+					>
+						<a onClick={(e) => e.preventDefault()}>
+							<Space>
+								Language
+								<DownOutlined />
+							</Space>
+						</a>
+					</Dropdown>
 				</div>
 			</div>
 		</div>

@@ -1,9 +1,10 @@
 import React from 'react'
-import CustomButton from '../components/CustomButton'
-import CustomTable from '../components/table'
-import styles from '../styles/Pages/form-response.module.css'
+import CustomButton from '../../components/CustomButton'
+import CustomTable from '../../components/table'
+import styles from '../../styles/Pages/form-response.module.css'
 
-const FormResponses = () => {
+
+const Schemes = () => {
 	return (
 		<div className={styles.form__response__wrapper}>
 			<div className={styles.form__response__header}>
@@ -20,4 +21,4 @@ const FormResponses = () => {
 	)
 }
 
-export default FormResponses
+export default Schemes
