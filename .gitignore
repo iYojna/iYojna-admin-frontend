@@ -3,3 +3,4 @@ node_modules
 .swc
 out
 yarn.lock
+.env
