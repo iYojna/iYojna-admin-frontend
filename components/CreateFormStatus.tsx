@@ -37,7 +37,7 @@ const CreateFormStatus = ({ currentStep }: CreateFormStatusType) => {
 							color: `rgba(0,0,0,${currentStep === 1 ? '0.85' : '0.45'})`,
 						}}
 					>
-						Form Details
+						Scheme Details
 					</p>
 				</div>
 				<div className={styles.title__wrapper}>
@@ -47,7 +47,7 @@ const CreateFormStatus = ({ currentStep }: CreateFormStatusType) => {
 							color: `rgba(0,0,0,${currentStep === 2 ? '0.85' : '0.45'})`,
 						}}
 					>
-						Document Required
+						Scheme Eligibility Criteria
 					</p>
 				</div>
 			</div>

@@ -25,7 +25,7 @@ const AuthHeader = () => {
 					color: '#000000D9',
 				}}
 			>
-				IYojna
+				iYojna
 			</Title>
 			<Text
 				style={{

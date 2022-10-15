@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import {
-	DownOutlined,
+	HomeOutlined,
 	FormOutlined,
 	LaptopOutlined,
 	NotificationOutlined,
@@ -43,40 +43,24 @@ const CustomLayout = ({ children }: IProps) => {
 			},
 			{
 				key: 1,
-				icon: React.createElement(UserOutlined),
+				icon: React.createElement(HomeOutlined),
 				label: 'Dashboard',
 				onClick: () => router.push('/dashboard'),
 			},
 			{
 				key: 2,
-				icon: <FormOutlined />,
-				label: 'Forms',
+				icon: React.createElement(FormOutlined),
+				label: 'Schemes',
 				children: [
 					{
 						key: 0,
-						label: 'Create Form',
-						onClick: () => router.push('/create-form'),
+						label: 'Add Scheme',
+						onClick: () => router.push('/schemes/create'),
 					},
 					{
 						key: 1,
-						label: 'View Form Responses',
-						onClick: () => router.push('/form-responses'),
-					},
-				],
-			},
-			{
-				key: 3,
-				icon: React.createElement(UserOutlined),
-				label: 'Oppotunities',
-				children: [
-					{
-						key: 0,
-						label: 'Create Opportunity',
-						onClick: () => router.push('/create-opportunity'),
-					},
-					{
-						key: 1,
-						label: 'View Applications',
+						label: 'All Schemes',
+						onClick: () => router.push('/schemes'),
 					},
 				],
 			},
@@ -102,9 +86,9 @@ const CustomLayout = ({ children }: IProps) => {
 							backgroundColor: 'white',
 						}}
 					>
-						{!collapsed ? (
-							<p className={styles.side__panel__title}>SHISHYA</p>
-						) : null}
+						<p className={styles.side__panel__title}>
+							{collapsed ? 'iY' : 'iYojna'}
+						</p>
 					</div>
 
 					<Menu

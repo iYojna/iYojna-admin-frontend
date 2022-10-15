@@ -1,57 +1,44 @@
 import create from 'zustand'
 
-import moment from 'moment'
-
 const useFormStore = create((set) => ({
 	title: '',
-	academicYear: '',
-	deadline: '',
 	description: '',
+	marritalStatus: '',
+	caste: '',
+	religion: '',
+	location: '',
+	minAge: '',
+	maxAge: '',
+	education: '',
+	occupation: '',
+	annualIncomeMinimum: '',
+	annualIncomeMaximum: '',
+	disability: '',
 
 	selectedCheckboxOptions: [],
-
-	customDocs: [{ title: null, isDeleted: false }],
 
 	formId: 0,
 
 	onTitleChange: (newTitle) => set(() => ({ title: newTitle })),
-	onAcademicYearChange: (newAcademicYear) =>
-		set(() => ({ academicYear: newAcademicYear })),
-	onDeadlineChange: (newDeadline) =>
-		set(() => {
-			const parsedDate = moment(newDeadline).format('YYYY-MM-DD')
-			return { deadline: parsedDate }
-		}),
+	onMarritalStatusChange: (newStatus) =>
+		set(() => ({ marritalStatus: newStatus })),
+	onCasteChange: (newCaste) => set(() => ({ caste: newCaste })),
+	onReligionChange: (newReligion) => set(() => ({ religion: newReligion })),
+	onLocationChange: (newLocation) => set(() => ({ location: newLocation })),
+	onMinAgeChange: (newMinAge) => set(() => ({ minAge: newMinAge })),
+	onMaxAgeChange: (newMaxAge) => set(() => ({ maxAge: newMaxAge })),
+	onEducationChange: (newEducation) => set(() => ({ education: newEducation })),
+	onOccupationChange: (newOccupation) =>
+		set(() => ({ occupation: newOccupation })),
+	onAnnualIncomeMinimumChange: (newIncome) =>
+		set(() => ({ annualIncomeMinimum: newIncome })),
+	onAnnualIncomeMaximumChange: (newIncome) =>
+		set(() => ({ annualIncomeMaximum: newIncome })),
+	onDisabilityChange: (newDisability) =>
+		set(() => ({ disability: newDisability })),
+
 	onDescriptionChange: (newDescription) =>
 		set(() => ({ description: newDescription })),
-
-	selectCheckboxOption: (value) =>
-		set((state) => ({
-			selectedCheckboxOptions: [...state.selectedCheckboxOptions, value],
-		})),
-	unselectCheckboxOption: (value) =>
-		set((state) => ({
-			selectedCheckboxOptions: state.selectedCheckboxOptions.filter(
-				(option) => option !== value
-			),
-		})),
-
-	addCustomDocComponent: () =>
-		set((state) => ({
-			customDocs: [...state.customDocs, { title: null, isDeleted: false }],
-		})),
-	deleteCustomDocComponent: (index) =>
-		set((state) => {
-			const newCustomDocs = [...state.customDocs]
-			newCustomDocs[index].isDeleted = true
-			return { customDocs: newCustomDocs }
-		}),
-	changeCustomDocTitleByIndex: (index, newVal) =>
-		set((state) => {
-			const newCustomDocs = [...state.customDocs]
-			newCustomDocs[index].title = newVal
-			return { customDocs: newCustomDocs }
-		}),
 
 	setFormId: (newFormId) => set(() => ({ formId: newFormId })),
 }))
