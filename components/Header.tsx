@@ -77,7 +77,7 @@ const CustomHeader = () => {
 					>
 						<a onClick={(e) => e.preventDefault()}>
 							<Space>
-								{language !== "gj" ? langSt.gj.language : langSt.en.language}
+								{language === "gj" ? langSt.gj.language : langSt.en.language}
 								<DownOutlined />
 							</Space>
 						</a>

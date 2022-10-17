@@ -22,41 +22,42 @@ const CustomLayout = ({ children }: IProps) => {
 	const router = useRouter()
 	const [collapsed, setCollapsed] = useState(false)
 	
-	const language = useLangStore((state) => state.language);
+	const language = useLangStore((state) => state.language)
+	const isLangGuj = language === "gj";
 
 	const navItems = React.useMemo(
 		() => [
 			{
 				key: 0,
 				icon: React.createElement(UserOutlined),
-				label: 'Login/Signup',
+				label: isLangGuj ? "લૉગિન/સાઇનઅપ" : 'Login/Signup',
 				onClick: () => router.push('/auth'),
 			},
 			{
 				key: 1,
 				icon: React.createElement(HomeOutlined),
-				label: 'Dashboard',
+				label: isLangGuj ? "ડેશબોર્ડ" : 'Dashboard',
 				onClick: () => router.push('/dashboard'),
 			},
 			{
 				key: 2,
 				icon: React.createElement(FormOutlined),
-				label: 'Schemes',
+				label: isLangGuj ? "યોજનાઓ" : 'Schemes',
 				children: [
 					{
 						key: 0,
-						label: 'Add Scheme',
+						label: isLangGuj ? "સ્કીમ ઉમેરો" : 'Add Scheme',
 						onClick: () => router.push('/schemes/create'),
 					},
 					{
 						key: 1,
-						label: 'All Schemes',
+						label: isLangGuj ? "બધી યોજનાઓ" : 'All Schemes',
 						onClick: () => router.push('/schemes'),
 					},
 				],
 			},
 		],
-		[router]
+		[router, isLangGuj]
 	)
 	return (
 		<Layout style={{ height: '100vh', overflowY: 'clip' }}>

@@ -1,11 +1,16 @@
 import React from 'react'
 import styles from '../styles/Components/create-form-status.module.css'
+import useLangStore from '../utils/store'
+import langSt from '../utils/uiText.json'
 
 type CreateFormStatusType = {
 	currentStep: number
 }
 
 const CreateFormStatus = ({ currentStep }: CreateFormStatusType) => {
+	const language = useLangStore((state) => state.language)
+	const isLangGuj = language === 'gj'
+
 	return (
 		<div className={styles.create__form__status__wrapper}>
 			<div className={styles.part__1}>
@@ -37,7 +42,7 @@ const CreateFormStatus = ({ currentStep }: CreateFormStatusType) => {
 							color: `rgba(0,0,0,${currentStep === 1 ? '0.85' : '0.45'})`,
 						}}
 					>
-						Scheme Details
+						{isLangGuj ? langSt.gj.schemeDetails : langSt.en.schemeDetails}
 					</p>
 				</div>
 				<div className={styles.title__wrapper}>
@@ -47,7 +52,9 @@ const CreateFormStatus = ({ currentStep }: CreateFormStatusType) => {
 							color: `rgba(0,0,0,${currentStep === 2 ? '0.85' : '0.45'})`,
 						}}
 					>
-						Scheme Eligibility Criteria
+						{isLangGuj
+							? langSt.gj.schemeEligibility
+							: langSt.en.schemeEligibility}
 					</p>
 				</div>
 			</div>

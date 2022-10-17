@@ -3,6 +3,8 @@ import React from 'react'
 import useFormStore from './formStore'
 import CustomInput from '../CustomInput'
 import styles from '../../styles/Pages/create-form-step1.module.css'
+import useLangStore from '../../utils/store'
+import langSt from '../../utils/uiText.json'
 
 const CreateFormStep2 = () => {
 	const {
@@ -29,28 +31,51 @@ const CreateFormStep2 = () => {
 		onDisabilityChange: state.onDisabilityChange,
 	}))
 
-	const marriedStatusDropdown = [
-		{
-			value: 'Single',
-			name: 'Single',
-		},
-		{
-			value: 'Married',
-			name: 'Married',
-		},
-		{
-			value: 'Not Applicable',
-			name: 'Not Applicable',
-		},
-	]
+	const language = useLangStore((state) => state.language)
+
+	const isLangGuj = language === 'gj'
+
+	const marriedStatusDropdown = isLangGuj
+		? [
+				{
+					value: 'એકલુ',
+					name: 'એકલુ',
+				},
+				{
+					value: 'લગ્ન કર્યા',
+					name: 'લગ્ન કર્યા',
+				},
+				{
+					value: 'લાગુ પડતું નથી',
+					name: 'લાગુ પડતું નથી',
+				},
+		  ]
+		: [
+				{
+					value: 'Single',
+					name: 'Single',
+				},
+				{
+					value: 'Married',
+					name: 'Married',
+				},
+				{
+					value: 'Not Applicable',
+					name: 'Not Applicable',
+				},
+		  ]
 
 	return (
 		<>
 			<div className={styles.form__input__wrapper}>
 				<CustomInput
 					data={marriedStatusDropdown}
-					label={'Marital Status'}
-					placeholder={'Select Marital Status'}
+					label={isLangGuj ? langSt.gj.maritalStatus : langSt.en.maritalStatus}
+					placeholder={
+						isLangGuj
+							? langSt.gj.maritalStatusPlaceholder
+							: langSt.en.maritalStatusPlaceholder
+					}
 					type={'drop-down'}
 					onChange={(e) => {
 						onMarritalStatusChange(e)
@@ -60,8 +85,10 @@ const CreateFormStep2 = () => {
 			<div className={styles.form__input__wrapper}>
 				<CustomInput
 					data={undefined}
-					label={'Caste'}
-					placeholder={'Enter Allowed Castes(if any)'}
+					label={isLangGuj ? langSt.gj.caste : langSt.en.caste}
+					placeholder={
+						isLangGuj ? langSt.gj.castePlaceholder : langSt.en.castePlaceholder
+					}
 					type={'text'}
 					onChange={(e) => onCasteChange(e.target.value)}
 				/>
@@ -69,8 +96,12 @@ const CreateFormStep2 = () => {
 			<div className={styles.form__input__wrapper}>
 				<CustomInput
 					data={undefined}
-					label={'Religion'}
-					placeholder={'Enter Allowed Religions(if any)'}
+					label={isLangGuj ? langSt.gj.religion : langSt.en.religion}
+					placeholder={
+						isLangGuj
+							? langSt.gj.religionPlaceholder
+							: langSt.en.religionPlaceholder
+					}
 					type={'text'}
 					onChange={(e) => onReligionChange(e.target.value)}
 				/>
@@ -78,8 +109,12 @@ const CreateFormStep2 = () => {
 			<div className={styles.form__input__wrapper}>
 				<CustomInput
 					data={undefined}
-					label={'Location'}
-					placeholder={'Enter Allowed Locations(if any)'}
+					label={isLangGuj ? langSt.gj.location : langSt.en.location}
+					placeholder={
+						isLangGuj
+							? langSt.gj.locationPlaceholder
+							: langSt.en.locationPlaceholder
+					}
 					type={'text'}
 					onChange={(e) => onReligionChange(e.target.value)}
 				/>
@@ -87,8 +122,12 @@ const CreateFormStep2 = () => {
 			<div className={styles.form__input__wrapper}>
 				<CustomInput
 					data={undefined}
-					label={'Minimum Age'}
-					placeholder={'Enter Minimum Age(if any)'}
+					label={isLangGuj ? langSt.gj.minAge : langSt.en.minAge}
+					placeholder={
+						isLangGuj
+							? langSt.gj.minAgePlaceholder
+							: langSt.en.minAgePlaceholder
+					}
 					type={'text'}
 					onChange={(e) => onMinAgeChange(e.target.value)}
 				/>
@@ -96,8 +135,12 @@ const CreateFormStep2 = () => {
 			<div className={styles.form__input__wrapper}>
 				<CustomInput
 					data={undefined}
-					label={'Maximum Age'}
-					placeholder={'Enter Maximum Age(if any)'}
+					label={isLangGuj ? langSt.gj.maxAge : langSt.en.maxAge}
+					placeholder={
+						isLangGuj
+							? langSt.gj.maxAgePlaceholder
+							: langSt.en.maxAgePlaceholder
+					}
 					type={'text'}
 					onChange={(e) => onMaxAgeChange(e.target.value)}
 				/>
@@ -105,8 +148,12 @@ const CreateFormStep2 = () => {
 			<div className={styles.form__input__wrapper}>
 				<CustomInput
 					data={undefined}
-					label={'Education'}
-					placeholder={'Enter Educational Qualification(if any)'}
+					label={isLangGuj ? langSt.gj.education : langSt.en.education}
+					placeholder={
+						isLangGuj
+							? langSt.gj.educationPlaceholder
+							: langSt.en.educationPlaceholder
+					}
 					type={'text'}
 					onChange={(e) => onEducationChange(e.target.value)}
 				/>
@@ -114,8 +161,12 @@ const CreateFormStep2 = () => {
 			<div className={styles.form__input__wrapper}>
 				<CustomInput
 					data={undefined}
-					label={'Occupation'}
-					placeholder={'Enter Allowed Occupations(if any)'}
+					label={isLangGuj ? langSt.gj.occupation : langSt.en.occupation}
+					placeholder={
+						isLangGuj
+							? langSt.gj.occupationPlaceholder
+							: langSt.en.occupationPlaceholder
+					}
 					type={'text'}
 					onChange={(e) => onOccupationChange(e.target.value)}
 				/>
@@ -123,8 +174,12 @@ const CreateFormStep2 = () => {
 			<div className={styles.form__input__wrapper}>
 				<CustomInput
 					data={undefined}
-					label={'Minimum Annual Income'}
-					placeholder={'Enter Minimum Annual Income(if any)'}
+					label={isLangGuj ? langSt.gj.minIncome : langSt.en.minIncome}
+					placeholder={
+						isLangGuj
+							? langSt.gj.minIncomePlaceholder
+							: langSt.en.minIncomePlaceholder
+					}
 					type={'text'}
 					onChange={(e) => onAnnualIncomeMinimumChange(e.target.value)}
 				/>
@@ -132,17 +187,25 @@ const CreateFormStep2 = () => {
 			<div className={styles.form__input__wrapper}>
 				<CustomInput
 					data={undefined}
-					label={'Maximum Annual Income'}
-					placeholder={'Enter Maximum Annual Income(if any)'}
+					label={isLangGuj ? langSt.gj.maxIncome : langSt.en.maxIncome}
+					placeholder={
+						isLangGuj
+							? langSt.gj.maxIncomePlaceholder
+							: langSt.en.maxIncomePlaceholder
+					}
 					type={'text'}
 					onChange={(e) => onAnnualIncomeMaximumChange(e.target.value)}
-				/>
+					/>
 			</div>
 			<div className={styles.form__input__wrapper}>
 				<CustomInput
 					data={undefined}
-					label={'Disability'}
-					placeholder={'Enter Disabilities(if any)'}
+					label={isLangGuj ? langSt.gj.disability : langSt.gj.disability}
+					placeholder={
+						isLangGuj
+							? langSt.gj.disabilityPlaceholder
+							: langSt.gj.disabilityPlaceholder
+					}
 					type={'text'}
 					onChange={(e) => onDisabilityChange(e.target.value)}
 				/>
