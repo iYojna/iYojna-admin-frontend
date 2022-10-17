@@ -9,9 +9,12 @@ import CreateFormStep1 from '../../components/create-form/create-form-step-1'
 import CreateFormStep2 from '../../components/create-form/create-form-step-2'
 
 import AxiosInstance from '../../services/AxiosInstance'
+import useLangStore from '../../utils/store'
+import langSt from "../../utils/uiText.json";
 
 const CreateForm = () => {
 	const [step, setStep] = React.useState(1)
+	const language = useLangStore((state) => state.language)
 
 	const handleStep = () => {
 		switch (step) {
@@ -27,7 +30,7 @@ const CreateForm = () => {
 	const ACCESS_TOKEN =
 		'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc4Nzc5NDEzLCJpYXQiOjE2NjE0OTk0MTMsImp0aSI6IjdiM2E2NzYzNWIxYjRkYWZiMTljYTg1NmI3NGQ0MWI1IiwidXNlcl9pZCI6Mn0.dzHFep_buR6XWpNCkrOkGEuh7Ah1H3M0M1sfL85XogM'
 
-	const OWNER_ID = 2
+	const OWNER_ID = 2	
 
 	const submitHandler = async () => {
 		try {
@@ -108,6 +111,8 @@ const CreateForm = () => {
 		}
 	}
 
+	const isLangGuj = language === "gj";
+
 	return (
 		<div
 			className={styles.form__components}
@@ -116,7 +121,7 @@ const CreateForm = () => {
 				overflowY: 'scroll',
 			}}
 		>
-			<p className={styles.create__form__title}>Create New Scheme</p>
+			<p className={styles.create__form__title}>{isLangGuj ? langSt.gj.createFormHeading : langSt.en.createFormHeading}</p>
 			<div className={styles.create__form__status__wrap}>
 				<CreateFormStatus currentStep={step} />
 			</div>
@@ -126,7 +131,7 @@ const CreateForm = () => {
 					{step === 2 ? (
 						<CustomButton
 							handleClick={() => setStep(step - 1)}
-							title={'Back'}
+							title={isLangGuj ? langSt.gj.back : langSt.en.back}
 						/>
 					) : null}
 				</div>
@@ -134,10 +139,10 @@ const CreateForm = () => {
 					{step === 1 ? (
 						<CustomButton
 							handleClick={() => setStep((prevStep) => prevStep + 1)}
-							title={'Next'}
+							title={isLangGuj ? langSt.gj.next : langSt.en.next}
 						/>
 					) : (
-						<CustomButton handleClick={submitHandler} title={'Submit'} />
+						<CustomButton handleClick={submitHandler} title={isLangGuj ? langSt.gj.submit : langSt.en.submit} />
 					)}
 				</div>
 			</div>
