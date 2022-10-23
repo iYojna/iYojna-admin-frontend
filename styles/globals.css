@@ -38,10 +38,10 @@ input:focus {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-	background: #ff5151;
+	background: rgb(1, 107, 1);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-	background: #ff5151;
+	background: rgb(1, 107, 1);
 }

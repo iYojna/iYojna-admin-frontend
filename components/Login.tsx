@@ -5,7 +5,7 @@ import { UserOutlined, LockOutlined } from '@ant-design/icons'
 
 const { Option } = Select
 import useLangStore from '../utils/store'
-import langSt from "../utils/uiText.json";
+import langSt from '../utils/uiText.json'
 // const layout = {
 // 	labelCol: { span: 8 },
 // 	wrapperCol: { span: 16 },
@@ -28,10 +28,13 @@ const Login = () => {
 
 	return (
 		<Form form={form} name="control-hooks" onFinish={onFinish}>
-			<Form.Item name={language === "gj" ? langSt.gj.email : langSt.en.email} rules={[{ required: true }]}>
+			<Form.Item
+				name={language === 'gj' ? langSt.gj.email : langSt.en.email}
+				rules={[{ required: true }]}
+			>
 				<Input
 					size="large"
-					placeholder={language === "gj" ? langSt.gj.email : langSt.en.email}
+					placeholder={language === 'gj' ? langSt.gj.email : langSt.en.email}
 					style={{ marginTop: '4%' }}
 					prefix={
 						<UserOutlined
@@ -43,10 +46,15 @@ const Login = () => {
 					}
 				/>
 			</Form.Item>
-			<Form.Item name={language === "gj" ? langSt.gj.password : langSt.en.password} rules={[{ required: true }]}>
+			<Form.Item
+				name={language === 'gj' ? langSt.gj.password : langSt.en.password}
+				rules={[{ required: true }]}
+			>
 				<Input.Password
 					size="large"
-					placeholder={language === "gj" ? langSt.gj.password : langSt.en.password}
+					placeholder={
+						language === 'gj' ? langSt.gj.password : langSt.en.password
+					}
 					prefix={
 						<LockOutlined
 							style={{
@@ -66,16 +74,23 @@ const Login = () => {
 						marginRight: '3%',
 						marginTop: '0.8rem',
 						borderRadius: '5px',
+						backgroundColor: 'rgb(1, 107, 1)',
 					}}
 				>
-					{language === "gj" ? langSt.gj.login : langSt.en.login}
+					{language === 'gj' ? langSt.gj.login : langSt.en.login}
 				</Button>
 				<Button
+					type="primary"
 					htmlType="button"
 					onClick={onReset}
-					style={{ width: '6vw', marginTop: '0.8rem', borderRadius: '5px' }}
+					style={{
+						width: '6vw',
+						marginTop: '0.8rem',
+						borderRadius: '5px',
+						backgroundColor: 'rgb(1, 107, 1)',
+					}}
 				>
-					{language === "gj" ? langSt.gj.reset : langSt.en.reset}
+					{language === 'gj' ? langSt.gj.reset : langSt.en.reset}
 				</Button>
 			</Form.Item>
 		</Form>
